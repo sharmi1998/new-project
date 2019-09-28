@@ -18,8 +18,8 @@ var mongoose=require('mongoose');
 //     item:"Registration",
 //     link:"/registration"
 // }];
- mongoose.connect("mongodb://localhost:27017/recipe");
-// mongoose.connect("mongodb+srv://mongodb:mongodb@mycluster-rfooj.mongodb.net/test?retryWrites=true&w=majority/recipe");
+// mongoose.connect("mongodb://localhost:27017/recipe");
+mongoose.connect("mongodb+srv://sharmi1998:sharmi1998@cluster0-rwxfj.mongodb.net/test?retryWrites=true&w=majority")
 var LoginModel=mongoose.model("login",{
     username:String,
     password:String,
@@ -43,8 +43,8 @@ var RecipeModel=mongoose.model("recipe",{
 //-----------------
 app.get('/',(req,res)=>
 {
-    var viewrecipe="http://localhost:3000/viewall";
-   //var viewrecipe="https://dashboard.heroku.com/apps/mini-project-recipe/viewall";
+    //  var viewrecipe="http://localhost:3000/viewall";
+    var viewrecipe="https://dashboard.heroku.com/apps/recipie-fsd/viewall";
      request(viewrecipe,(error,response,body)=>{
          var data=JSON.parse(body);
          res.render('index',{title:"home",data:data});
@@ -56,8 +56,8 @@ app.get('/',(req,res)=>
 });
 app.get('/index',(req,res)=>
 {
-    var viewrecipe="http://localhost:3000/viewall";
-  //var viewrecipe="https://dashboard.heroku.com/apps/mini-project-recipe/viewall";
+    // var viewrecipe="http://localhost:3000/viewall";
+  var viewrecipe="https://dashboard.heroku.com/apps/recipie-fsd/viewall";
     request(viewrecipe,(error,response,body)=>{
         var data=JSON.parse(body);
         res.render('index',{title:"home",data:data});
@@ -119,8 +119,8 @@ var result=regdata.save((error)=>
        console.log("Mailid"+regdata.mailid);
    }
 });
- res.send("<script> window.location.href='/registration' </script>");
- //res.send("<script> window.location.href='https://mini-project-recipe.herokuapp.com/registration' </script>");
+//  res.send("<script> window.location.href='/registration' </script>");
+ res.send("<script> window.location.href='https://recipie-fsd.herokuapp.com/registration' </script>");
 });
 
 //---------------------------------------------------------------------
@@ -163,14 +163,14 @@ var result=LoginModel.find({$and:[{username:sess.username},{password:sess.passwo
             //console.log(data);
            if(data[0].utype=="user")
            {
-                res.send("<script> window.location.href='/user' </script>");
-              //res.send("<script> window.location.href='https://mini-project-recipe.herokuapp.com/user' </script>");
+                // res.send("<script> window.location.href='/user' </script>");
+              res.send("<script> window.location.href='https://recipie-fsd.herokuapp.com/user' </script>");
 
 
            }
            else{
-            res.send("<script> window.location.href='/admin' </script>");
-         //res.send("<script> window.location.href='https://mini-project-recipe.herokuapp.com/admin' </script>");
+            // res.send("<script> window.location.href='/admin' </script>");
+         res.send("<script> window.location.href='https://recipie-fsd.herokuapp.com/admin' </script>");
            }
         }
     }
@@ -199,8 +199,8 @@ app.get('/readRecipeApi',(req,res)=>{
 //View recipes Admin
 app.get('/viewRecipeAdmin',(req,res)=>{
 
-   var viewrecipe="http://localhost:3000/readRecipeApi";
- // var viewrecipe="https://dashboard.heroku.com/apps/mini-project-recipe/readRecipeApi";
+//    var viewrecipe="http://localhost:3000/readRecipeApi";
+  var viewrecipe="https://dashboard.heroku.com/apps/mini-project-recipe/readRecipeApi";
   request(viewrecipe,(error,response,body)=>
   {
      var result=JSON.parse(body);
@@ -244,8 +244,8 @@ app.get('/approveApi/:id',(req,res)=>{
         else
         {
            
-           res.send("<script> window.location.href='/viewrecipeAdmin' </script>")
-         //res.send("<script> window.location.href='https://mini-project-recipe.herokuapp.com/viewrecipeAdmin' </script>")
+        //    res.send("<script> window.location.href='/viewrecipeAdmin' </script>")
+         res.send("<script> window.location.href='https://recipie-fsd.herokuapp.com/viewrecipeAdmin' </script>")
 
         }
     });
@@ -262,8 +262,8 @@ app.get('/deleterecipe/:id',(req,res)=>
             throw error;
         }
         else{
-            res.send("<script> window.location.href='/viewrecipeuser' </script>");
-           //res.send("<script> window.location.href='https://mini-project-recipe.herokuapp.com/viewrecipeuser' </script>");
+            // res.send("<script> window.location.href='/viewrecipeuser' </script>");
+           res.send("<script> window.location.href='https://recipe-fsd.herokuapp.com/viewrecipeuser' </script>");
         }
     });
 });
@@ -294,8 +294,8 @@ app.post('/addrecipe',(req,res)=>
 
         }
     });
-    res.send("<script> window.location.href='/user' </script>")
-   //res.send("<script> window.location.href='https://mini-project-recipe.herokuapp.com/user' </script>")
+    // res.send("<script> window.location.href='/user' </script>")
+   res.send("<script> window.location.href='https://recipie-fsd.herokuapp.com/user' </script>")
 });
 
 //-------------------------------------
