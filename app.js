@@ -200,7 +200,7 @@ app.get('/readRecipeApi',(req,res)=>{
 app.get('/viewRecipeAdmin',(req,res)=>{
 
 //    var viewrecipe="http://localhost:3000/readRecipeApi";
-  var viewrecipe="https://dashboard.heroku.com/apps/mini-project-recipe/readRecipeApi";
+  var viewrecipe="https://dashboard.heroku.com/apps/recipie-fsd/readRecipeApi";
   request(viewrecipe,(error,response,body)=>
   {
      var result=JSON.parse(body);
