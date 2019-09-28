@@ -18,8 +18,8 @@ var mongoose=require('mongoose');
 //     item:"Registration",
 //     link:"/registration"
 // }];
- //mongoose.connect("mongodb://localhost:27017/recipe");
-mongoose.connect("mongodb+srv://mongodb:mongodb@mycluster-rfooj.mongodb.net/test?retryWrites=true&w=majority/recipe");
+ mongoose.connect("mongodb://localhost:27017/recipe");
+// mongoose.connect("mongodb+srv://mongodb:mongodb@mycluster-rfooj.mongodb.net/test?retryWrites=true&w=majority/recipe");
 var LoginModel=mongoose.model("login",{
     username:String,
     password:String,
